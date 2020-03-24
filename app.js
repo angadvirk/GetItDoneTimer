@@ -517,6 +517,10 @@ function main() {
     breakMins_input.value = "5";
     breakSecs_input.value = "0";
     cycleCount_input.value = "2";
+    focusPeriodUpdate();
+    breakDurationUpdate();
+    cyclesUpdate();
+    totalTimeUpdate(totalTimeCalculator(focusPeriod, breakDuration, cycles));
   });
 }
 
