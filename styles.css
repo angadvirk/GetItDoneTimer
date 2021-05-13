@@ -48,6 +48,18 @@ header > h1 {
   bottom: 50%;
   right: 5px;
 }
+#modalCycleErrorDiv {
+  font-family: 'Sen', sans-serif;
+  font-size: 16px;
+}
+#cycleErrorMessage {
+  text-align: left;
+}
+#cycleErrorHeading {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
 #modalSettingsDiv {
   font-family: 'Sen', sans-serif;
   font-size: 16px;

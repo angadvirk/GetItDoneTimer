@@ -1,6 +1,6 @@
 let focusPeriod = 0; // focusPeriod in seconds
 let breakDuration = 0; // breakDuration in seconds
-let cycles = 0; // no of cycles
+let cycles = 2; // no of cycles
 let currSession = ""; // whether curr session is focus or break. Empty string if neither
 let secsLeftGlobal = 0; // secs left in current session, for resume functionality
 let cyclesLeftGlobal = 0; // how many cycles currently left.
@@ -38,6 +38,8 @@ const modalAbout_div = document.getElementById("modalAboutDiv");
 const modalHelp_div = document.getElementById("modalHelpDiv");
 const modalSettings_div = document.getElementById("modalSettingsDiv");
 const clearButton_span = document.getElementById("clearButton");
+const modalCycleError_div = document.getElementById("modalCycleErrorDiv");
+const cycleErrorBackButton_div = document.getElementById("cycleErrorBackButton");
 
 
 const timerFocusHours_span = document.getElementById('timerFocusHours');
@@ -183,6 +185,10 @@ function saveToStorage(focusSecs, breakSecs, cyclesLeft) {
 }
 
 function startButtonHandler() {
+  if (cycles <= 0) {
+    modalCycleError_div.classList.remove("modalHidden");
+    return;
+  }
   // Transition to timerScene
   mainMenuChild_div.style.opacity = 0;
   setTimeout(() => {
@@ -461,7 +467,7 @@ function main() {
   cycleCount_input.addEventListener('input', () => {
     if (parseInt(cycleCount_input.value) < 1 || cycleCount_input.value.includes(".") || cycleCount_input.value.includes("e") || cycleCount_input.value.includes("E"))
     {
-      cycleCount_input.value = "1";
+      cycleCount_input.value = "0";
     }
     else if (parseInt(cycleCount_input.value) > 20)
     {
@@ -469,7 +475,7 @@ function main() {
     }
     else if (!cycleCount_input.value)
     {
-      cycleCount_input.value = "1";
+      cycleCount_input.value = "0";
     }
     cyclesUpdate();
     totalTimeUpdate(totalTimeCalculator(focusPeriod, breakDuration, cycles));
@@ -509,6 +515,9 @@ function main() {
   aboutBackButton_div.addEventListener('click', () => {
     modalAbout_div.classList.add("modalHidden");
   });
+  cycleErrorBackButton_div.addEventListener('click', () => {
+    modalCycleError_div.classList.add("modalHidden");
+  })
   clearButton_span.addEventListener('click', () => {
     window.localStorage.clear();
     focusHours_input.value = "0";

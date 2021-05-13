@@ -36,7 +36,7 @@
       </div>
       <p id="cyclesQuery">Enter number of Cycles:</p>
       <div class="cyclesInput">
-        <input type="number" class="inputBoxes" id="cycleCountInput" min="1" max="100" value="2"><span> Cycles</span>
+        <input type="number" class="inputBoxes" id="cycleCountInput" min="0" max="100" value="2"><span> Cycles</span>
       </div>
       <p id="totalTimeMessage">Total time you'll work:</p>
       <p id="totalTime"></p>
@@ -58,6 +58,15 @@
     </div>
   </div>
   <div id="menuItems">
+
+    <div class="modal modalHidden" id="modalCycleErrorDiv">
+      <div class="modal__contents">
+        <p id="cycleErrorHeading">ERROR</p>
+        <br />
+        <p id="cycleErrorMessage">The number of cycles must have a value that is greater than 0.</p> <br />
+        <div class="backButton" id="cycleErrorBackButton">BACK</div>
+      </div>
+    </div>
     <div class="modal modalHidden" id="modalSettingsDiv">
       <div class="modal__contents">
         <p id="settingsHeading">SETTINGS</p>
