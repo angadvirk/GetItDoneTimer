@@ -41,7 +41,6 @@ const clearButton_span = document.getElementById("clearButton");
 const modalCycleError_div = document.getElementById("modalCycleErrorDiv");
 const cycleErrorBackButton_div = document.getElementById("cycleErrorBackButton");
 
-
 const timerFocusHours_span = document.getElementById('timerFocusHours');
 const timerFocusMins_span = document.getElementById('timerFocusMins');
 const timerFocusSecs_span = document.getElementById('timerFocusSecs');
@@ -189,6 +188,8 @@ function startButtonHandler() {
     modalCycleError_div.classList.remove("modalHidden");
     return;
   }
+  focusSound_audio.play(); // Play focus sound
+  
   // Transition to timerScene
   mainMenuChild_div.style.opacity = 0;
   setTimeout(() => {
@@ -206,7 +207,6 @@ function startButtonHandler() {
   let initialTime = secsConverter(focusSecs);
   initializeTimer(initialTime[0], initialTime[1], initialTime[2]);
   // Check if cyclesLeft > 0... else, don't start the timer and give a message
-  focusSound_audio.play(); // Play focus sound
   document.body.style.backgroundColor = "#eb725d"; // Red background
   focusStart(focusSecs, breakSecs, cyclesLeft);
 }
