@@ -1,4 +1,8 @@
-# get-it-done-timer
+# GetItDoneTimer
 Awesome study/work timer web-app developed independently using JavaScript, HTML, CSS. 
 
-Check it out here: https://avirk-getitdonetimer.000webhostapp.com/
+**Link to Hosted App:** https://avirk-getitdonetimer.000webhostapp.com/
+
+## What I Learned:
+* HTML, CSS, JavaScript Fundamentals.
+* Designed & Coded the App independently, from scratch.
